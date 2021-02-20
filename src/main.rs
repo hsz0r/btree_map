@@ -156,7 +156,7 @@ where
     fn new_with(order: usize) -> Btree_map<K, V> {
         Btree_map::<K, V> {
             size: 0,
-            height: 1,
+            height: 0,
             t: order,
             root: Node::<K, V>::new(order),
         }
@@ -246,11 +246,53 @@ where
 }
 
 fn main() {
+    //test1();
+    test2();
+}
+
+fn test1() {
+    let mut test = Btree_map::<i64, i64>::new_with(4);
+    test.insert(30, 1);
+    test.insert(70, 2);
+    test.insert(8, 3);
+    test.insert(25, 4);
+    test.insert(40, 5);
+    test.insert(50, 6);
+    test.insert(76, 7);
+    test.insert(88, 8);
+    test.insert(1, 9);
+    test.insert(3, 10);
+    test.insert(7, 11);
+    test.insert(15, 12);
+    test.insert(21, 13);
+    test.insert(23, 14);
+    test.insert(26, 15);
+    test.insert(28, 16);
+    test.insert(35, 17);
+    test.insert(38, 18);
+    test.insert(42, 19);
+    test.insert(49, 20);
+    test.insert(56, 21);
+    test.insert(67, 22);
+    test.insert(71, 23);
+    test.insert(73, 24);
+    test.insert(75, 25);
+    test.insert(77, 26);
+    test.insert(85, 27);
+    test.insert(89, 28);
+    test.insert(97, 29);
+    test.print();
+    println!("Size {}", &test.getSize());
+
+    println!("Height {}", &test.getHeight());
+}
+
+fn test2() {
     let mut b = Btree_map::<i64, i64>::new_with(3);
-    for x in 1..1000000 {
+    for x in 1..50 {
         b.insert(x, x);
     }
-    //b.print();
+    b.print();
     //b.find(&4);
 
     //println!("{:?}", &b.test_height());
