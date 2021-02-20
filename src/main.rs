@@ -1,3 +1,4 @@
+use rand::Rng;
 use std::fmt;
 
 struct Node<K, V>
@@ -246,7 +247,7 @@ where
 }
 
 fn main() {
-    //test1();
+    // test1();
     test2();
 }
 
@@ -282,6 +283,7 @@ fn test1() {
     test.insert(89, 28);
     test.insert(97, 29);
     test.print();
+    println!("t {}", &test.t);
     println!("Size {}", &test.getSize());
 
     println!("Height {}", &test.getHeight());
@@ -289,8 +291,9 @@ fn test1() {
 
 fn test2() {
     let mut b = Btree_map::<i64, i64>::new_with(3);
+    let mut rng = rand::thread_rng();
     for x in 1..50 {
-        b.insert(x, x);
+        b.insert(rng.gen_range(0..9999999999), x);
     }
     b.print();
     //b.find(&4);
