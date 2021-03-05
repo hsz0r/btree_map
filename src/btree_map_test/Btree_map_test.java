@@ -18,24 +18,29 @@ public class Btree_map_test {
     /**
      * @param args the command line arguments
      */
+    
   public static void main(String[] args) {
-    btree_map b = new btree_map(7);
+    btree_map test = new btree_map(3);
 
-    System.out.println("Пусто? " + b.isEmpty());
+    System.out.println("Пусто? " + test.isEmpty());
     long before = System.currentTimeMillis();
-    for(int i = 1; i < 1000000; i++){
-        b.add(i, i);
+    for(int i = 1; i < 100; i++){
+        test.add(i, i);
     }
     long after = System.currentTimeMillis();
     long result = after - before;
     System.out.println("Time: " + result);
-    System.out.println(b.nodeTest());
+    //System.out.println(test.nodeTest());
     
-    System.out.println("Пусто? " + b.isEmpty());
-    System.out.println(b.heightTest());
+    System.out.println("Пусто? " + test.isEmpty());
+    System.out.println("Contains? " + test.searchpair(111).toString());
+    //System.out.println(test.heightTest());
    
-    b.clear();
-    System.out.println("Пусто? " + b.isEmpty());
+//    b.clear();
+//    System.out.println("Пусто? " + b.isEmpty());
+//    btree_map test1 = new btree_map(test);
+//    System.out.println(test1.nodeTest());
+//    System.out.println("Пусто? " + test1.isEmpty());
+//    System.out.println(test1.heightTest());
   }
-    
 }
